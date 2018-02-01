@@ -19,6 +19,7 @@ services:
       - mysql
     volumes:
       - "./app:/var/www/html"
+      - "./vendor:/var/www/vendor"
 
   nginx:
     depends_on:
