@@ -1,6 +1,15 @@
+# Composer
 composer.phar
-/vendor/
+app/vendor/
 
-# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# composer.lock
+# Database
+/.db/*
+!/.db/.gitkeep
+
+# Logs
+/logs/*
+!/logs/.gitkeep
+
+# Docker
+docker-compose.override.yml
+docker-compose.dev.yml
