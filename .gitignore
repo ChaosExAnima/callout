@@ -1,6 +1,6 @@
 # Composer
 composer.phar
-app/vendor/
+/vendor/
 
 # Database
 /.db/*
