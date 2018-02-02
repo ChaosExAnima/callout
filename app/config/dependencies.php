@@ -8,11 +8,23 @@
 
 namespace Callout;
 
+use Illuminate\Database\Capsule\Manager;
+
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Formatter\LineFormatter;
 
 $container = $app->getContainer();
+
+$container['db'] = function( $container ) {
+	$capsule = new Manager;
+	$capsule->addConnection( $container['settings']['db'] );
+
+	$capsule->setAsGlobal();
+	$capsule->bootEloquent();
+
+	return $capsule;
+};
 
 $container['logger'] = function( $container ) {
 	$settings = $container->get( 'settings' )['logger'];
