@@ -13,3 +13,6 @@ composer.phar
 # Docker
 docker-compose.override.yml
 docker-compose.dev.yml
+
+# App
+/app/.env

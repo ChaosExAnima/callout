@@ -2,7 +2,9 @@
     "require": {
         "slim/slim": "^3.9",
         "webonyx/graphql-php": "^0.11.5",
-        "monolog/monolog": "^1.23"
+        "monolog/monolog": "^1.23",
+        "illuminate/database": "^5.5",
+        "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
         "php-console/php-console": "^3.1",
