@@ -8,15 +8,21 @@
 
 namespace Callout;
 
+use Slim\Container;
+
 use Illuminate\Database\Capsule\Manager;
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Formatter\LineFormatter;
 
-$container = $app->getContainer();
-
-$container['db'] = function( $container ) {
+/**
+ * Database manager.
+ *
+ * @param Container $container Container reference.
+ * @return Manager
+ */
+function db( Container $container ) : Manager {
 	$capsule = new Manager;
 	$capsule->addConnection( $container['settings']['db'] );
 
@@ -24,9 +30,15 @@ $container['db'] = function( $container ) {
 	$capsule->bootEloquent();
 
 	return $capsule;
-};
+}
 
-$container['logger'] = function( $container ) {
+/**
+ * Logger manager.
+ *
+ * @param Container $container Container reference.
+ * @return Logger
+ */
+function logger( Container $container ) : Logger {
 	$settings = $container->get( 'settings' )['logger'];
 	$logger = new Logger( $settings['name'] );
 
@@ -43,4 +55,9 @@ $container['logger'] = function( $container ) {
 	$logger->pushHandler( $stream );
 
 	return $logger;
-};
+}
+
+$container = $app->getContainer();
+
+$container['db'] = __NAMESPACE__ . '\\db';
+$container['logger'] = __NAMESPACE__ . '\\logger';
