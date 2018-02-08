@@ -1,0 +1,5 @@
+#!/bin/bash
+
+USER=`id -u`
+
+./bin/docker exec --user $USER:www-data phpfpm ../vendor/bin/phinx migrate "$@"

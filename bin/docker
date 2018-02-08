@@ -1,0 +1,5 @@
+#!/bin/bash
+
+COMP=${COMPOSE_NAME:-docker-compose.yml}
+
+docker-compose -f $COMP "$@"
