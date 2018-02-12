@@ -3,6 +3,8 @@
 	<rule ref="./vendor/10up/10up-code-review/10up-Base/ruleset.xml" />
 	<rule ref="./vendor/wp-coding-standards/wpcs/WordPress-Docs/ruleset.xml" />
 
+	<exclude-pattern>vendor/*</exclude-pattern>
+
 	<rule ref="WordPress.Files.FileName.UnderscoresNotAllowed">
 		<exclude-pattern>app/migrations/*</exclude-pattern>
 	</rule>

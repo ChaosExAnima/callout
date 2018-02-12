@@ -29,10 +29,11 @@ class User extends AbstractMigration {
 		$table = $this->table( 'user' );
 		$table
 			->addColumn( 'name', 'string' )
-			->addIndex( 'name' )
+			->addIndex( 'name', [ 'unique' => true ] )
 			->addColumn( 'password', 'string' )
 			->addIndex( 'password' )
 			->addColumn( 'email', 'string', [ 'null' => true ] )
+			->addIndex( 'email', [ 'unique' => true ] )
 			->addTimestamps( 'created', 'updated' )
 			->addColumn( 'banned', 'boolean' )
 			->addColumn( 'role', 'string' )

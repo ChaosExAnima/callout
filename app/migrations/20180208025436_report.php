@@ -35,9 +35,12 @@ class Report extends AbstractMigration {
 			->addColumn( 'user_id', 'integer', [ 'null' => true ] )
 			->addIndex( 'user_id' )
 			->addForeignKey( 'user_id', 'user', 'id', $cascades )
+			->addColumn( 'text', 'text' )
 			->addColumn( 'admin_id', 'integer', [ 'null' => true ] )
 			->addIndex( 'admin_id' )
 			->addForeignKey( 'admin_id', 'user', 'id', $cascades )
+			->addColumn( 'type', 'string' )
+			->addIndex( 'type' )
 			->create();
 	}
 }
